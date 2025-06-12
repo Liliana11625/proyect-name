@@ -62,4 +62,15 @@ export class CatsService {
   }
 
 
+   // DELETE /cats/:id
+  delete(id: number): void {
+    const index = this.#cats.findIndex((c) => c.id === id);
+    if (index === -1) {
+      throw new NotFoundException(`Cat with id ${id} not found`);
+    }
+
+
+    this.#cats.splice(index, 1);
+  }
+
 }

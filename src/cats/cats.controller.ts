@@ -28,5 +28,11 @@ create(@Body()createCatDto:CatDto){
     return this.catsService.update(+id, updateCatDto);
   }
 
+@Delete(':id')
+  delete(@Param('id') id: string) {
+    this.catsService.delete(+id);
+    return { message: 'Cat deleted successfully' };
+  }
+
 }
 
