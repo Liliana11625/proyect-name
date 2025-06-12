@@ -13,6 +13,11 @@ findAll(){
     return this.catsService.findAll();
 }
 
+@Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.catsService.findOne(+id); // conversión a number
+  }
+
 
 }
 
