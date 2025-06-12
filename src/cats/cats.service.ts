@@ -43,5 +43,23 @@ export class CatsService {
         return newCat;
     }
 
+    
+    // PATCH /cats/:id
+  update(id: number, updateDto: Partial<CatDto>): Cat {
+    const index = this.#cats.findIndex((c) => c.id === id);
+    if (index === -1) {
+      throw new NotFoundException(`Cat with id ${id} not found`);
+    }
+
+
+    this.#cats[index] = {
+      ...this.#cats[index],
+      ...updateDto,
+    };
+
+
+    return this.#cats[index];
+  }
+
 
 }

@@ -23,6 +23,10 @@ create(@Body()createCatDto:CatDto){
     return this.catsService.create(createCatDto);
 }
 
+@Patch(':id')
+  update(@Param('id') id: string, @Body() updateCatDto: Partial<CatDto>) {
+    return this.catsService.update(+id, updateCatDto);
+  }
 
 }
 
