@@ -18,6 +18,11 @@ findAll(){
     return this.catsService.findOne(+id); // conversión a number
   }
 
+  @Post()
+create(@Body()createCatDto:CatDto){
+    return this.catsService.create(createCatDto);
+}
+
 
 }
 

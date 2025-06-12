@@ -31,5 +31,17 @@ export class CatsService {
     return cat;
   }
 
+    // POST /cats
+    create(CatDto: CatDto): Cat {
+        const newCat: Cat = {
+            id:this.#cats.length + 1,
+            ...CatDto,
+        }
+
+
+        this.#cats.push(newCat);
+        return newCat;
+    }
+
 
 }
